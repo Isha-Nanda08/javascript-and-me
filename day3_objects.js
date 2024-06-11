@@ -13,7 +13,7 @@ const mySym = Symbol("key1");
 const Jsuser={
     name:"Rahul",
     age:20,
-    mySym:"myKeyone", // will not work
+    [mySym]:"myKey1", // will not work
     "full name":"rahul v", // cant be accessed by . operator , use square notation
     email:"isha@gmail.com",
     isLoggedIn:false,
@@ -27,3 +27,11 @@ console.log(Jsuser.email);
 
 console.log(Jsuser["email"]); // now it will work
 console.log(Jsuser["full name"]);// we cant access full name with . operator now
+console.log(typeof Jsuser.mySym); // but we have declared it as symbol
+
+// to use it as symbol use it as square brackets in key
+// can overwrite over values
+Jsuser.email="aruu";
+console.log(Jsuser.email);
+// can fix the values also
+Object.freeze(Jsuser); // now we cant change the values
